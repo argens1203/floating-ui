@@ -55,7 +55,7 @@ export function UseHoverExample() {
             margin: 20,
             ...floatingStyles,
           }}
-          {...getFloatingProps}
+          {...getFloatingProps()}
         >
           Floating Element
         </div>

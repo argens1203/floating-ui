@@ -42,7 +42,7 @@ export function UseFocusWithHoverExample() {
             margin: 20,
             ...floatingStyles,
           }}
-          {...getFloatingProps}
+          {...getFloatingProps()}
         >
           Floating Element
         </div>

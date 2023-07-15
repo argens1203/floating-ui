@@ -22,13 +22,12 @@ export function UseClickWithFocusExample() {
   //Does not work with hover
   const click = useClick(context);
   const dismiss = useDismiss(context);
-  // useRole does not work
-  // const role = useRole(context, { role: "tooltip" });
+  const role = useRole(context, { role: "menu" });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     focus,
     // hover,
-    // role,
+    role,
     dismiss,
     click,
   ]);
@@ -53,7 +52,7 @@ export function UseClickWithFocusExample() {
             margin: 20,
             ...floatingStyles,
           }}
-          {...getFloatingProps}
+          {...getFloatingProps()}
         >
           Floating Element
         </div>
