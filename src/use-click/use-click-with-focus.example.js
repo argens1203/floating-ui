@@ -4,6 +4,8 @@ import {
   useInteractions,
   useHover,
   useFocus,
+  useRole,
+  useDismiss,
 } from "@floating-ui/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -19,24 +21,28 @@ export function UseClickWithFocusExample() {
   // const hover = useHover(context);
   //Does not work with hover
   const click = useClick(context);
+  const dismiss = useDismiss(context);
+  // useRole does not work
+  // const role = useRole(context, { role: "tooltip" });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     focus,
     // hover,
+    // role,
+    dismiss,
     click,
   ]);
   return (
     <>
       <input />
-      <button
+      <div
         ref={refs.setReference}
         {...getReferenceProps()}
         style={{ display: "inline" }}
         tabIndex={0}
-        href=""
       >
         Shows popup when focused or clicked
-      </button>
+      </div>
       {isOpen && (
         <div
           ref={refs.setFloating}
