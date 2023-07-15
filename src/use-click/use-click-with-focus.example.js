@@ -41,7 +41,7 @@ export function UseClickWithFocusExample() {
         style={{ display: "inline" }}
         tabIndex={0}
       >
-        Shows popup when focused or clicked
+        Shows popup when focused or clicked, Escape to close
       </div>
       {isOpen && (
         <div
