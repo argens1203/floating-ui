@@ -1,12 +1,7 @@
-import {
-  useFloating,
-  useFocus,
-  useHover,
-  useInteractions,
-} from "@floating-ui/react";
+import { useFloating, useClick, useInteractions } from "@floating-ui/react";
 import { useState } from "react";
 
-export function UseFocusWithHoverExample() {
+export function UseClickExample() {
   console.log("rerendering");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,24 +9,20 @@ export function UseFocusWithHoverExample() {
     open: isOpen,
     onOpenChange: setIsOpen,
   });
-  const hover = useHover(context);
-  const focus = useFocus(context);
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    focus,
-    hover,
-  ]);
+  const click = useClick(context);
+  const { getReferenceProps, getFloatingProps } = useInteractions([click]);
   return (
     <>
       <input />
-      <a
+      <div
         ref={refs.setReference}
         {...getReferenceProps()}
         style={{ display: "inline" }}
         tabIndex={0}
         href=""
       >
-        Shows popup when focused or hovered
-      </a>
+        Shows popup when clicked
+      </div>
       {isOpen && (
         <div
           ref={refs.setFloating}
