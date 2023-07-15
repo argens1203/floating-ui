@@ -19,7 +19,7 @@ export function UseListNavigationExample() {
     open: isOpen,
     onOpenChange: setIsOpen,
   });
-  const listRef = useRef([]);
+  const listRef = useRef();
   const click = useClick(context);
   const focus = useFocus(context);
   const dismiss = useDismiss(context);
